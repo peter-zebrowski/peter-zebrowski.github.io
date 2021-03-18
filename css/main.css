@@ -5,6 +5,10 @@
  *  that can be found in the LICENSE file in the root of the source
  *  tree.
  */
+body {
+  color: #999;
+}
+
 button {
   margin: 20px 10px 0 0;
   width: 130px;

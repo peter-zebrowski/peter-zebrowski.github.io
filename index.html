@@ -115,16 +115,19 @@
 <script src="js/ga.js"></script>
 
 <script>
-const urlParams = new URLSearchParams(window.location.search);
-const serverAddr = urlParams.get('server');
-const username = urlParams.get('user');
-const passwd = urlParams.get('passwd');
+window.addEventListener('load', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const serverAddr = urlParams.get('server');
+    const username = urlParams.get('user');
+    const passwd = urlParams.get('passwd');
 
-console.log('server: ' + serverAddr);
-console.log('user: ' + username);
-console.log('passwd: ' + passwd);
-addServerByParams(serverAddr, username, passwd);
-start();
+    console.log('server: ' + serverAddr);
+    console.log('user: ' + username);
+    console.log('passwd: ' + passwd);
+    addServerByParams(serverAddr, username, passwd);
+    start();
+})
+
 </script>
 
 </body>
