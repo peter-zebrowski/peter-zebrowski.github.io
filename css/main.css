@@ -9,6 +9,14 @@ body {
   color: #999;
 }
 
+#candidatesBody {
+  background-color: #FFF;
+}
+
+#error {
+  background-color: #FFF;
+}
+
 button {
   margin: 20px 10px 0 0;
   width: 130px;
