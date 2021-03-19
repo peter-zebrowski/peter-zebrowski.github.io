@@ -241,9 +241,11 @@ function getFinalResult() {
         if (types.indexOf('srflx') > -1) {
           // a binding response but no relay candidate suggests auth failure.
           result = 'Authentication failed?';
+          console.log('Candidate error: Authentication failed?');
         } else {
           // either the TURN server is down or the clients access is blocked.
           result = 'Not reachable?';
+          console.log('Candidate error: Not reachable?');
         }
       }
     }
@@ -268,6 +270,9 @@ function iceCallback(event) {
     appendCell(row, candidate.port);
     appendCell(row, formatPriority(candidate.priority));
     candidates.push(candidate);
+
+    console.log('Candidate component: ' + candidate.component + ' type: ' + candidate.type + ' foundation: ' + candidate.foundation +
+      ' protocol: ' + candidate.protocol + ' address: ' + candidate.address + ':' + candidate.port);
   } else if (!('onicegatheringstatechange' in RTCPeerConnection.prototype)) {
     // should not be done if its done in the icegatheringstatechange callback.
     appendCell(row, getFinalResult(), 7);
@@ -300,6 +305,10 @@ function iceCandidateError(e) {
   document.getElementById('error').innerText += 'The server ' + e.url +
     ' returned an error with code=' + e.errorCode + ':\n' +
     e.errorText + '\n';
+  
+  console.log('Error: The server ' + e.url +
+    ' returned an error with code=' + e.errorCode + ': ' +
+    e.errorText);
 }
 
 readServersFromLocalStorage();
